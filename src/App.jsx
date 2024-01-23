@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import Todo from "components/Todo";
 import Button from "components/Button";
+import Header from "components/Header";
+import InputTodo from "components/InputTodo";
+import TodoTitle from "components/TodoTitle";
 
 // 사용한 hook은 오직 useState
 // 기능 구현을 위해 생성한 함수는 2개 입니다. `onChangeHandler` , `onSubmitHandler`
@@ -73,39 +76,19 @@ const App = () => {
 
   return (
     <div className="container">
-      <header>
-        <div className="title">myTodoList</div>
-        <div className="subTitle">React</div>
-      </header>
+      <Header className1={"title"} className2={"subTitle"} children1={"myTodoList"} children2={"React"}/>
       <hr />
 
       <div className="inputTodo">
-        <div className="inputTitle">
-          <p>
-            <strong>제목 : &nbsp;</strong>
-          <input 
-            value={title}
-            onChange={titleChangeHandler}
-          />
-          </p>
-        </div>
-        <div className="inputContent">
-          <p>
-            <strong>내용 : &nbsp;</strong>
-          <input 
-            value={body}
-            onChange={bodyChangeHandler}
-          />
-          </p>
-        </div>
+        <InputTodo className={"inputTitle"} title={"제목"} value={title} onChange={titleChangeHandler}/>
+        <InputTodo className={"inputContent"} title={"내용"} value={body} onChange={bodyChangeHandler}/>
+      
         <div className="plusButton">
           <Button clickAddHandler={clickAddHandler}><strong>추가하기</strong></Button>
         </div>
       </div>
 
-      <div className="working">
-        <h2>Working...🔥</h2>
-      </div>
+      <TodoTitle className={"working"} title={"Working...🔥"}/>
 
       <div className="app-style">
       {
@@ -115,9 +98,7 @@ const App = () => {
       }
       </div>
 
-      <div className="done">
-        <h2>Done✔️</h2>
-      </div>
+      <TodoTitle className={"done"} title={"Done✔️"}/>
 
       <div className="app-style">
       {
