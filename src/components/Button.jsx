@@ -1,5 +1,5 @@
 const Button = ({clickAddHandler, children}) => {
-    return <p onClick={clickAddHandler}>{children}</p>;
+    return <button className="inputBtn" onClick={clickAddHandler}><strong>{children}</strong></button>;
 }
 
 export default Button; 

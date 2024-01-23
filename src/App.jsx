@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import WorkingTodo from "components/WorkingTodo";
-import DoneTodo from "components/DoneTodo";
+import Todo from "components/Todo";
 import Button from "components/Button";
 
 // 1. **JSX 문법**이란 무엇일까요?
@@ -125,7 +124,7 @@ const App = () => {
       <div className="app-style">
       {
         todo.filter((item) => !item.isDone).map((item) => (
-          <WorkingTodo key={item.id} item={item} clickDelHandler={clickDelHandler} clickDoneHandler={clickDoneHandler}/>
+          <Todo key={item.id} item={item} clickHandler1={clickDelHandler} clickHandler2={clickDoneHandler} btn1={"삭제하기"} btn2={"완료"}/>
         ))
       }
       </div>
@@ -137,7 +136,7 @@ const App = () => {
       <div className="app-style">
       {
         todo.filter((item) => item.isDone).map((item) => (
-          <DoneTodo key={item.id} item={item} clickDelHandler={clickDelHandler} clickCancelHandler={clickCancelHandler}/>
+          <Todo key={item.id} item={item} clickHandler1={clickDelHandler} clickHandler2={clickCancelHandler} btn1={"삭제하기"} btn2={"취소"}/>
         ))
       }
       </div>
